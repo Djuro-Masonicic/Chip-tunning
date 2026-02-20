@@ -1,5 +1,32 @@
 const API_URL = 'http://localhost:3000/api';
 
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const sidebar = document.getElementById('sidebar');
+
+if (mobileMenuBtn && sidebar) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        sidebar.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenuBtn.classList.remove('active');
+            sidebar.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            sidebar.classList.remove('active');
+        });
+    });
+}
+
 // Progress Bar
 window.addEventListener('scroll', () => {
     const progressBar = document.getElementById('progressBar');

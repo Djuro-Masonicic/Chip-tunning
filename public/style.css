@@ -2031,7 +2031,78 @@ select option:disabled {
     padding: 60px;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10001;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255, 96, 0, 0.1);
+    border-color: var(--accent-orange);
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Responsive */
+@media (max-width: 968px) {
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+    
+    .logo-text, .sidebar-footer p {
+        font-size: 0.7em;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+    
+    .main-wrapper {
+        margin-left: 70px;
+    }
+    
+    .content-container {
+        padding: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.5em;
@@ -2075,8 +2146,18 @@ select option:disabled {
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
     .sidebar {
-        display: none;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
     }
     
     .main-wrapper {
@@ -2084,38 +2165,121 @@ select option:disabled {
     }
     
     .content-container {
-        padding: 20px;
+        padding: 20px 15px;
     }
 
     .hero-banner {
-        height: 250px;
+        height: 300px;
+        margin-top: 0;
     }
 
     .hero-text h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 1em;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .cta-button, .cta-button-outline {
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+        padding: 14px 20px;
     }
 
     .stats-bar {
         grid-template-columns: 1fr;
         gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .stat-box {
+        padding: 20px;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .booking-section {
         padding: 25px 20px;
+        margin: 20px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8em;
+    }
+    
+    .submit-button {
+        width: 100%;
+        padding: 16px;
+        font-size: 1.1em;
     }
 
     .notification {
         right: 15px;
         left: 15px;
         min-width: auto;
+        max-width: calc(100% - 30px);
     }
     
-    .admin-hero {\n        padding: 25px;\n        flex-direction: column;\n        align-items: flex-start;\n    }\n    \n    .admin-hero-content h1 {\n        font-size: 1.8em;\n    }\n    \n    .admin-stats {\n        grid-template-columns: 1fr;\n    }\n    \n    .filter-buttons {\n        flex-direction: column;\n    }\n    \n    .filter-btn {\n        width: 100%;\n        text-align: center;\n    }\n    \n    .booking-details {\n        grid-template-columns: 1fr;\n    }\n    \n    .booking-actions {\n        flex-direction: column;\n    }\n    \n    .btn-action {\n        width: 100%;\n        text-align: center;\n    }\n}
+    .hero-badge {
+        font-size: 0.85em;
+        padding: 8px 16px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    /* Loading Screen Mobile */
+    .loading-progress-text {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 250px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.5em;
+    }
+    
+    .hero-text p {
+        font-size: 0.9em;
+    }
+    
+    .stat-num {
+        font-size: 2em;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3em;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5em;
+    }
+    
+    .content-container {
+        padding: 15px 10px;
+    }
+}
