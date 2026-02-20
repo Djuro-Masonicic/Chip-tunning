@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Cipovanje Automobila</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🏁</div>
+            <div class="logo-text">CHIP<span>TUNING</span></div>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/">Početna</a></li>
+            <li><a href="/#usluge">Usluge</a></li>
+            <li><a href="/#zakazivanje">Zakazivanje</a></li>
+            <li><a href="/admin" class="active">Admin</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <p>📞 060 123 4567</p>
+            <p>📧 info@chiptuning.rs</p>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="content-container">
+
+            <!-- Admin Header -->
+            <div class="admin-hero">
+                <div class="admin-hero-content">
+                    <h1>🔧 Admin Dashboard</h1>
+                    <p>Upravljanje zakazanim terminima</p>
+                </div>
+                <button class="btn-refresh" onclick="loadBookings()">
+                    <span>🔄</span>
+                    Osveži
+                </button>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="admin-stats" id="adminStats">
+                <div class="admin-stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalCount">0</div>
+                        <div class="stat-label">Ukupno</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card pending-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="pendingCount">0</div>
+                        <div class="stat-label">Na čekanju</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card confirmed-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="confirmedCount">0</div>
+                        <div class="stat-label">Potvrđeni</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card completed-card">
+                    <div class="stat-icon">🎉</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="completedCount">0</div>
+                        <div class="stat-label">Završeni</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <section class="admin-section">
+
+                <div class="filter-header">
+                    <h2>📅 Zakazani Termini</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterBookings('all')">Svi</button>
+                        <button class="filter-btn" data-filter="pending" onclick="filterBookings('pending')">⏳ Na čekanju</button>
+                        <button class="filter-btn" data-filter="confirmed" onclick="filterBookings('confirmed')">✅ Potvrđeni</button>
+                        <button class="filter-btn" data-filter="completed" onclick="filterBookings('completed')">🎉 Završeni</button>
+                        <button class="filter-btn" data-filter="cancelled" onclick="filterBookings('cancelled')">❌ Otkazani</button>
+                    </div>
+                </div>
+
+                <div id="bookingsList" class="bookings-list">
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p class="loading">Učitavanje podataka...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Nazad na vrh">
+        ⬆️
+    </button>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="particles.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

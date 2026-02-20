@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipovanje Automobila - Zakazivanje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🏁</div>
+            <div class="logo-text">CHIP<span>TUNING</span></div>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#pocetna" class="active">Početna</a></li>
+            <li><a href="#usluge">Usluge</a></li>
+            <li><a href="#zakazivanje">Zakazivanje</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <p>📞 060 123 4567</p>
+            <p>📧 info@chiptuning.rs</p>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="content-container">
+            <!-- Hero Banner -->
+            <section class="hero-banner" id="pocetna">
+                <div class="hero-overlay"></div>
+                <div class="hero-badge">🏆 #1 u Srbiji</div>
+                <div class="hero-text">
+                    <h1>PERFORMANCE UPGRADE</h1>
+                    <p>Profesionalni Chip Tuning Servis</p>
+                    <div class="hero-cta">
+                        <a href="#zakazivanje" class="cta-button">Zakaži Odmah</a>
+                        <a href="#usluge" class="cta-button-outline">Pogledaj Usluge</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-box">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Klijenata</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">+40%</div>
+                    <div class="stat-label">Snage</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Garancija</div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <section class="services-section" id="usluge">
+                <div class="section-header">
+                    <span class="section-icon">⚡</span>
+                    <h2>Premium Usluge</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Stage 1 Tuning</h3>
+                        <p>Osnovna optimizacija ECU softvera za maksimalne performanse</p>
+                        <div class="service-benefits">
+                            <span>✓ +25-35% snage</span>
+                            <span>✓ Bolji gas response</span>
+                        </div>
+                        <span class="price">Od 200€</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>Stage 2 Tuning</h3>
+                        <p>Napredna optimizacija sa hardverskim modifikacijama</p>
+                        <div class="service-benefits">
+                            <span>✓ +40-50% snage</span>
+                            <span>✓ Full turbo upgrade</span>
+                        </div>
+                        <span class="price">Od 400€</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>EGR Delete</h3>
+                        <p>Profesionalno isključivanje EGR ventila</p>
+                        <div class="service-benefits">
+                            <span>✓ Čistiji motor</span>
+                            <span>✓ Manje kvarova</span>
+                        </div>
+                        <span class="price">Od 150€</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">♻️</div>
+                        <h3>DPF Delete</h3>
+                        <p>Profesionalno isključivanje DPF filtera</p>
+                        <div class="service-benefits">
+                            <span>✓ Bolje performanse</span>
+                            <span>✓ Manja potrošnja</span>
+                        </div>
+                        <span class="price">Od 200€</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Section -->
+            <section class="booking-section" id="zakazivanje">
+                <div class="booking-header">
+                    <div>
+                        <h2>📅 Zakažite Termin</h2>
+                        <p class="section-description">Popunite formu ispod i mi ćemo Vas kontaktirati u najkraćem roku</p>
+                    </div>
+                    <div class="booking-badge">⚡ Brzo Zakazivanje</div>
+                </div>
+                
+                <form id="bookingForm" class="modern-form">
+                    <!-- Personal Info -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-number">1</span>
+                            <h3>👤 Lične Informacije</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ime i prezime *</label>
+                                <input type="text" id="name" name="name" placeholder="Petar Petrović" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="060 123 4567" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email adresa</label>
+                                <input type="email" id="email" name="email" placeholder="primer@email.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Info -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-number">2</span>
+                            <h3>🚗 Informacije o Vozilu</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carBrand">Marka *</label>
+                                <input type="text" id="carBrand" name="carBrand" placeholder="BMW" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="carModel">Model *</label>
+                                <input type="text" id="carModel" name="carModel" placeholder="320d" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="carYear">Godište</label>
+                                <input type="number" id="carYear" name="carYear" min="1990" max="2026" placeholder="2020">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Selection -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-number">3</span>
+                            <h3>⚙️ Izbor Usluge</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="service">Željena usluga *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">-- Izaberite uslugu --</option>
+                                    <option value="stage1">⚡ Stage 1 Tuning (Od 200€)</option>
+                                    <option value="stage2">🚀 Stage 2 Tuning (Od 400€)</option>
+                                    <option value="egr">🔧 EGR Delete (Od 150€)</option>
+                                    <option value="dpf">♻️ DPF Delete (Od 200€)</option>
+                                    <option value="stage1-egr">🎯 Stage 1 + EGR</option>
+                                    <option value="stage1-dpf">💎 Stage 1 + DPF</option>
+                                    <option value="custom">✨ Custom tuning</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Time -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-number">4</span>
+                            <h3>📆 Izbor Termina</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Datum *</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Vreme *</label>
+                                <select id="time" name="time" required>
+                                    <option value="">-- Izaberite vreme --</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="notes">Dodatna napomena</label>
+                                <textarea id="notes" name="notes" rows="4" placeholder="Unesite dodatne informacije ili postavite pitanje..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-submit-section">
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Zakaži Termin</span>
+                        </button>
+                        <p class="form-footer-note">
+                            <span class="note-icon">🔒</span>
+                            Vaši podaci su bezbedni • Odgovor u roku od 2h
+                        </p>
+                    </div>
+                </form>
+          div 2026 Cipovanje Automobila | <a href="/admin">Admin Panel</a></p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification"></div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Nazad na vrh">
+        ⬆️
+    </button>
+
+    <script src="particles.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
