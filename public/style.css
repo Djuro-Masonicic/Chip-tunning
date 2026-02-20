@@ -2104,48 +2104,6 @@ select option:disabled {
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    .subtitle {
-        font-size: 1.1em;
-    }
-
-    main {
-        padding: 0 20px 60px;
-    }
-
-    .hero-section {
-        padding: 50px 30px;
-    }
-
-    .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .stat-number {
-        font-size: 3em;
-    }
-
-    .services-grid {
-        grid-templa968px) {
-    .sidebar {
-        width: 60px;
-        padding: 20px 10px;
-    }
-    
-    .logo-text, .sidebar-footer, .nav-menu a {
-        font-size: 0;
-    }
-    
-    .main-wrapper {
-        margin-left: 60px;
-    }
-}
-
-@media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
     }
