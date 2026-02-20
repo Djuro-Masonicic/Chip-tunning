@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d0d12;
+            color: white;
+            padding: 20px;
+        }
+        
+        .test-box {
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .screen-size {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .info {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        
+        .desktop-only,
+        .tablet-only,
+        .mobile-only {
+            display: none;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        /* Desktop */
+        .desktop-only {
+            display: block;
+            background: #10b981;
+        }
+        
+        /* Tablet */
+        @media (max-width: 1200px) {
+            .desktop-only {
+                display: none;
+            }
+            .tablet-only {
+                display: block;
+                background: #f59e0b;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .tablet-only {
+                display: none;
+            }
+            .mobile-only {
+                display: block;
+                background: #ef4444;
+            }
+            
+            .screen-size {
+                font-size: 2em;
+            }
+        }
+        
+        .status {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .current-width {
+            font-size: 2em;
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <div class="screen-size">📱 RESPONSIVE TEST</div>
+        <div class="info">If you see this page, the server is working!</div>
+    </div>
+    
+    <div class="desktop-only">
+        ✅ DESKTOP VIEW (Screen > 1200px)
+    </div>
+    
+    <div class="tablet-only">
+        ✅ TABLET VIEW (768px - 1200px)
+    </div>
+    
+    <div class="mobile-only">
+        ✅ MOBILE VIEW (Screen < 768px)
+    </div>
+    
+    <div class="status">
+        <div class="info">Current Browser Width:</div>
+        <div class="current-width" id="width">-</div>
+    </div>
+    
+    <div class="status">
+        <div class="info">Instructions:</div>
+        <div style="text-align: left; margin-top: 10px;">
+            1. Press F12 to open DevTools<br>
+            2. Press Ctrl+Shift+M to toggle device toolbar<br>
+            3. Select different devices from dropdown<br>
+            4. You should see the colored boxes change!<br><br>
+            <strong>If the boxes DON'T change, media queries aren't working!</strong>
+        </div>
+    </div>
+    
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth + 'px';
+        }
+        
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+    </script>
+</body>
+</html>

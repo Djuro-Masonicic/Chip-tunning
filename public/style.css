@@ -92,7 +92,10 @@ body {
     }
 }
 
-/* Logo */
+/* Sidebar Border Effect */
+.sidebar::after {
+    content: '';
+    position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
@@ -1246,7 +1249,13 @@ body::before {
     background-clip: text;
 }
 
-.section-description {card);
+.section-description {
+    color: var(--text-gray);
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.booking-section {
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -1479,12 +1488,6 @@ select option:disabled {
 
 .note-icon {
     font-size: 1.1em;
-}
-    color: var(--text-gray);
-    font-size: 0.8em;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border
 }
 
 .notification.show {
@@ -2078,39 +2081,43 @@ select option:disabled {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .sidebar {
-        width: 70px;
-        padding: 20px 10px;
-    }
-    
-    .logo-text, .sidebar-footer p {
-        font-size: 0.7em;
-    }
-    
-    .nav-menu a {
-        font-size: 0.9em;
-        padding: 12px;
-    }
-    
-    .main-wrapper {
-        margin-left: 70px;
-    }
-    
-    .content-container {
-        padding: 25px;
-    }
+/* Mobile Overlay Backdrop */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-@media (max-width: 768px) {
+.mobile-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .mobile-overlay {
+        display: block;
+    }
+    
     .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
     }
     
     .sidebar {
+        position: fixed;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
+        width: 240px;
+        z-index: 10000;
     }
     
     .sidebar.active {
@@ -2119,7 +2126,7 @@ select option:disabled {
     }
     
     .main-wrapper {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
     
     .content-container {
@@ -2127,13 +2134,34 @@ select option:disabled {
     }
 
     .hero-banner {
-        height: 300px;
+        height: 350px;
         margin-top: 0;
     }
 
     .hero-text h1 {
-        font-size: 1.8em;
+        font-size: 2em;
         margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 1.1em;
+    }
+
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 300px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8em;
     }
     
     .hero-text p {
@@ -2150,13 +2178,13 @@ select option:disabled {
         width: 100%;
         text-align: center;
         font-size: 1em;
-        padding: 14px 20px;
+        padding: 16px 24px;
+        min-height: 50px;
     }
 
     .stats-bar {
         grid-template-columns: 1fr;
         gap: 15px;
-        margin: 20px 0;
     }
     
     .stat-box {
@@ -2172,9 +2200,8 @@ select option:disabled {
         padding: 25px;
     }
 
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .form-row {
+        grid-template-columns: 1fr !important;
     }
 
     .booking-section {
@@ -2186,15 +2213,17 @@ select option:disabled {
         font-size: 1.8em;
     }
     
-    .submit-button {
+    .btn-submit {
         width: 100%;
-        padding: 16px;
+        padding: 18px;
         font-size: 1.1em;
+        min-height: 56px;
     }
 
     .notification {
         right: 15px;
         left: 15px;
+        top: 70px;
         min-width: auto;
         max-width: calc(100% - 30px);
     }
@@ -2206,38 +2235,109 @@ select option:disabled {
         right: 15px;
     }
     
-    /* Loading Screen Mobile */
-    .loading-progress-text {
+    .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .booking-badge {
+        align-self: stretch;
+        text-align: center;
+    }
+    
+    /* Better touch targets for mobile */
+    input, select, textarea {
+        padding: 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 50px;
+    }
+    
+    label {
         font-size: 1em;
+        margin-bottom: 8px;
+    }
+    
+    .section-title {
+        margin-bottom: 20px;
+    }
+    
+    .form-section {
+        margin-bottom: 30px;
     }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
     .hero-banner {
-        height: 250px;
+        height: 280px;
     }
     
     .hero-text h1 {
-        font-size: 1.5em;
+        font-size: 1.6em;
+        line-height: 1.2;
     }
     
     .hero-text p {
-        font-size: 0.9em;
+        font-size: 0.95em;
     }
     
     .stat-num {
         font-size: 2em;
     }
     
+    .stat-label {
+        font-size: 0.9em;
+    }
+    
+    .service-card {
+        padding: 20px;
+    }
+    
     .service-card h3 {
         font-size: 1.3em;
     }
     
+    .service-icon {
+        font-size: 2.5em;
+    }
+    
     .section-header h2 {
+        font-size: 1.6em;
+    }
+    
+    .section-icon {
         font-size: 1.5em;
     }
     
     .content-container {
-        padding: 15px 10px;
+        padding: 15px 12px;
+    }
+    
+    .booking-section {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+    
+    .section-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1em;
+    }
+    
+    .section-title h3 {
+        font-size: 1.2em;
+    }
+    
+    .form-footer-note {
+        font-size: 0.85em;
+    }
+    
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1.2em;
     }
 }

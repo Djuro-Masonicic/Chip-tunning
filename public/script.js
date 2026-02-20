@@ -1,20 +1,36 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://localhost:8086/api';
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const sidebar = document.getElementById('sidebar');
+const mobileOverlay = document.getElementById('mobileOverlay');
 
 if (mobileMenuBtn && sidebar) {
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuBtn.classList.toggle('active');
         sidebar.classList.toggle('active');
+        if (mobileOverlay) {
+            mobileOverlay.classList.toggle('active');
+        }
     });
     
-    // Close menu when clicking outside
+    // Close menu when clicking outside (overlay)
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            sidebar.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+        });
+    }
+    
+    // Close menu when clicking outside (document)
     document.addEventListener('click', (e) => {
         if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
             mobileMenuBtn.classList.remove('active');
             sidebar.classList.remove('active');
+            if (mobileOverlay) {
+                mobileOverlay.classList.remove('active');
+            }
         }
     });
     
@@ -23,6 +39,9 @@ if (mobileMenuBtn && sidebar) {
         link.addEventListener('click', () => {
             mobileMenuBtn.classList.remove('active');
             sidebar.classList.remove('active');
+            if (mobileOverlay) {
+                mobileOverlay.classList.remove('active');
+            }
         });
     });
 }
